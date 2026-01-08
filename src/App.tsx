@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 // CV Data
@@ -169,14 +169,14 @@ function App() {
         <nav className="navbar">
           <div className="logo">Fouad Chaouki Refis</div>
           <ul className="nav-links">
-            <li><a href="#" onClick={() => scrollToSection('home')}>Home</a></li>
-            <li><a href="#" onClick={() => scrollToSection('about')}>About</a></li>
-            <li><a href="#" onClick={() => scrollToSection('research')}>Research</a></li>
-            <li><a href="#" onClick={() => scrollToSection('experience')}>Experience</a></li>
-            <li><a href="#" onClick={() => scrollToSection('projects')}>Projects</a></li>
-            <li><a href="#" onClick={() => scrollToSection('publications')}>Publications</a></li>
-            <li><a href="#" onClick={() => scrollToSection('skills')}>Skills</a></li>
-            <li><a href="#" onClick={() => scrollToSection('contact')}>Contact</a></li>
+            <li><a href="#" className={activeSection === 'home' ? 'active' : ''} onClick={() => scrollToSection('home')}>Home</a></li>
+            <li><a href="#" className={activeSection === 'about' ? 'active' : ''} onClick={() => scrollToSection('about')}>About</a></li>
+            <li><a href="#" className={activeSection === 'research' ? 'active' : ''} onClick={() => scrollToSection('research')}>Research</a></li>
+            <li><a href="#" className={activeSection === 'experience' ? 'active' : ''} onClick={() => scrollToSection('experience')}>Experience</a></li>
+            <li><a href="#" className={activeSection === 'projects' ? 'active' : ''} onClick={() => scrollToSection('projects')}>Projects</a></li>
+            <li><a href="#" className={activeSection === 'publications' ? 'active' : ''} onClick={() => scrollToSection('publications')}>Publications</a></li>
+            <li><a href="#" className={activeSection === 'skills' ? 'active' : ''} onClick={() => scrollToSection('skills')}>Skills</a></li>
+            <li><a href="#" className={activeSection === 'contact' ? 'active' : ''} onClick={() => scrollToSection('contact')}>Contact</a></li>
           </ul>
         </nav>
       </header>
