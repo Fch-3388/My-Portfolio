@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+
+# Production builds
+/dist/
+/build/
+/.vite/
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.directory
+.Trashes
+*.swp
+*.swo
+*~
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vs/
+.settings/
+
+# Temporary files
+.tmp
+.temp
+tmp/
+temp/
+
+# Build outputs
+coverage/
+.nyc_output/
+dist-server/
+dist-ssr/
+*.tgz
+
+# Editor specific
+.history/
+.next/
+.nuxt/
+.vuepress/dist
+.output.js
+.output.json
+
+# TypeScript
+*.tsbuildinfo
+*.bak
+
+# Local development
+.local/
