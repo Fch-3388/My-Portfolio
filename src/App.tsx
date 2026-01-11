@@ -157,10 +157,45 @@ const cvInfo = {
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    
+    try {
+      // In a real application, you would send the form data to a backend service
+      // For now, we'll just simulate the submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+      setFormStatus('success');
+      
+      // Reset status after 3 seconds
+      setTimeout(() => setFormStatus('idle'), 3000);
+    } catch (error) {
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 3000);
+    }
   };
 
   return (
@@ -185,10 +220,10 @@ function App() {
       <section id="home" className="hero">
         <div className="hero-content">
           <h1>AI Engineer | Research-Focused Master's Graduate in Artificial Intelligence and Multimedia</h1>
-          <p>seeking PhD opportunities at the intersection of foundation models, Swarm Robotics, and XAI. My goal is to develop adaptive multi-agent systems that are not only intelligent and scalable, but also interpretable and human-aligned.</p>
+          <p>seeking PhD opportunities at the intersection of foundation models/LLMs, XAI and Swarm Robotics or robotics. My goal is to develop adaptive multi-agent systems that are not only intelligent and scalable, but also interpretable and human-aligned.</p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={() => scrollToSection('research')}>View My Research</button>
-            <a href="/Fch_Refis_CV_ENG_PhD.pdf" download className="btn-secondary">Download CV</a>
+            <a href="./Fch_Refis_CV_ENG_PhD.pdf" download className="btn-secondary">Download CV</a>
           </div>
         </div>
       </section>
@@ -371,11 +406,40 @@ function App() {
             </div>
             <div className="contact-form">
               <h3>Send a message</h3>
-              <form>
-                <input type="text" placeholder="Your Name" required />
-                <input type="email" placeholder="Your Email" required />
-                <textarea placeholder="Your Message" rows={5} required></textarea>
-                <button type="submit" className="btn-primary">Send Message</button>
+              <form onSubmit={handleSubmit}>
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="Your Name" 
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required 
+                />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="Your Email" 
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required 
+                />
+                <textarea 
+                  name="message"
+                  placeholder="Your Message" 
+                  rows={5} 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required>
+                </textarea>
+                <button type="submit" className="btn-primary" disabled={formStatus === 'submitting'}>
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </button>
+                {formStatus === 'success' && (
+                  <p className="form-success">Message sent successfully!</p>
+                )}
+                {formStatus === 'error' && (
+                  <p className="form-error">Error sending message. Please try again.</p>
+                )}
               </form>
             </div>
           </div>

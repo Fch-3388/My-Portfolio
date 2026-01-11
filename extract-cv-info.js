@@ -13,7 +13,12 @@ const cvInfo = {
     github: "github.com/fouadcr",
     website: "fouadcr.ai"
   },
-  summary: "Researcher and engineer specializing in AI, LLMs, swarm robotics, and explainable AI with experience in developing intelligent systems that learn, collaborate, and explain themselves.",
+  summary: "Fouad Chaouki Refis is a promising researcher and AI engineer specializing in the convergence of Large Language Models, swarm Robotics/intelligence, and interpretable AI systems. Holding a Master's degree in Artificial Intelligence and Multimedia with distinction from the University of Batna 2, he is actively pursuing PhD opportunities in the AI/ML field, particularly at the intersection between LLMs, XAI, and multi-agent systems/robotics.\n",
+
+  "His professional expertise is demonstrated through impactful projects, including his work with Infraxcode, where he engineered solutions using RAG and fine-tuned models to reduce infrastructure costs. As an AI & Robotics Engineer, he excels at translating complex technical concepts into accessible education for diverse audiences.\n",
+
+  "A dedicated scholar, Fouad has already contributed to the academic community as a first author in a peer-reviewed journal (MDPI Sensors). His hands-on research is further evidenced by his master's thesis, where he designed and prototyped two functional swarm robotics systems, bridging simulation (Webots) with physical hardware.\n",
+  "Technically proficient in Python, C++, modern AI frameworks (LangChain, TensorFlow), and DevOps tools, Fouad combines strong theoretical knowledge with practical implementation skills. His profile is that of a versatile and innovative young professional, positioned to contribute significantly to the next generation of intelligent systems.",
   education: [
     {
       degree: "PhD in Artificial Intelligence & Robotics",
